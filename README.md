@@ -13,16 +13,21 @@
         <b>
             <a href="https://apps.abhijithota.me/go-validator-playground">Go to the app!</a>
         </b>
+        <br>
 	</p>
 </div>
 
-</p>
-
-![](.github/readme.png)
+![Screenshot of the webapp](.github/readme.png)
 
 ## What is this?
 
 This is a simple web app that allows you to test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) struct tags. You can use it at https://apps.abhijithota.me/go-validator-playground.
+
+## Purpose
+
+[`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) is probably the most popular Go validation library. It uses (or *exploits*, dare I say) struct tags to validate the particular struct fields. 
+
+It's pretty flexible, but it's also a PITA when you misspell something or forget the syntax. This tool is not a silver bullet but it is here to help you find out what's wrong with the code more quickly.
 
 ## How does it work?
 
@@ -36,12 +41,6 @@ It uses [WebAssembly](https://webassembly.org/) to run the [`go-playground/valid
 - The actual validation is performed.
 - Errors and invalid fields/tags are returned back to the JS code.
   
-## Purpose
-
-[`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) library is probably the most popular Go validation library. It uses (or exploit if you're frustrated with it) struct tags to validate the particular struct fields. 
-
-It's pretty flexible, but it's also a PITA when you misspell something or forget the syntax. This tool is here to help you with that. 
-
 
 ## Todo
 
