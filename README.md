@@ -2,14 +2,12 @@
 	<h1>Go Validator Playground</h1>
 	<p>
 		<b>
-            Iterate & test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) `struct` tags.
+            Iterate & test your <a href="https://pkg.go.dev/github.com/go-playground/validator/v10"><code>go-playground/validator</code></a>			<code>struct</code> tags
         </b>
         <b>
-            [Webapp](https://apps.abhijithota.me/go-validator-playground/)
+            <a href="https://apps.abhijithota.me/go-validator-playground">Webapp</a>
         </b>
 	</p>
-	<br>
-	<br>
 </div>
 
 </p>
