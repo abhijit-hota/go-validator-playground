@@ -1,6 +1,8 @@
 package pkg
 
 import (
+	"errors"
+
 	"github.com/go-playground/validator/v10"
 )
 
@@ -9,18 +11,24 @@ type InvalidResult struct {
 	Tags   []string `json:"tags"`
 }
 
-func ValidateStruct(foo any) (*InvalidResult, error) {
+func ValidateStruct(foo any) (res *InvalidResult, err error) {
 	v := validator.New()
+
+	defer func() {
+		if r := recover(); r != nil {
+			err = errors.New("panic occurred: please check your struct tags")
+		}
+	}()
 
 	if err := v.Struct(foo); err != nil {
 		if invalidErr, ok := err.(*validator.InvalidValidationError); ok {
 			return nil, invalidErr
 		}
 
-		return ParseValidationError(err), nil
+		res = ParseValidationError(err)
 	}
 
-	return nil, nil
+	return
 }
 
 func ParseValidationError(err error) *InvalidResult {
