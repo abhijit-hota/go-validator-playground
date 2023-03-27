@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Validator Playground</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validator Playground</title>
-    <script src="wasm_exec.js"></script>
-    <script>
-        const go = new Go();
-        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
-            go.run(result.instance);
-        });
+		<link rel="stylesheet" href="style.css" />
 
-        function render() {
-            const structType = document.getElementById("struct-type").value
-            const jsonData = document.getElementById("json").value
-            
-            const result = validateStruct(structType, jsonData)
-            console.log(result)
-        }
-    </script>
-</head>
+		<script src="wasm_exec.js"></script>
+		<script src="wasm_init.js"></script>
+	</head>
 
-<body>
+	<body>
+		<main class="container">
+			<h1><a href="https://pkg.go.dev/github.com/go-playground/validator/v10">Go Validator</a> Playground</h1>
+			<h3>Quickly iterate and check your go-validations.</h3>
+			<br />
 
-    <textarea name="struct-type" id="struct-type" cols="30" rows="50"></textarea>
-    <textarea name="json" id="json" cols="30" rows="50"></textarea>
-    <button onclick="render();">
-        Validate
-    </button>
-</body>
+			<div class="area">
+				<textarea name="struct-type" id="struct-type" cols="30" rows="30" oninput="render();"></textarea>
+				<textarea name="json" id="json" cols="30" rows="30" oninput="render();"></textarea>
+			</div>
+			<div id="result">
+				<span id="default" class="heading result"> Validation results will be shown here. </span>
 
+				<div id="invalid" class="result">
+					<span class="heading">Invalid data! ❌</span>
+					<br />
+
+					Following tags are invalid:
+					<pre id="tags"></pre>
+					Following Fields are invalid:
+					<pre id="fields"></pre>
+				</div>
+
+				<div id="valid" class="result">
+					<span class="heading"> All good! ✅ </span>
+				</div>
+
+				<div id="error" class="result">
+					<span class="heading"> An error occured 🤒 </span>
+					<pre id="error-message"></pre>
+				</div>
+			</div>
+		</main>
+	</body>
+	<script src="index.js"></script>
 </html>

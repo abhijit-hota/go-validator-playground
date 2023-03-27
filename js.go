@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 	"syscall/js"
 
 	"abhijithota.me/go-validator-playground/pkg"
@@ -33,25 +34,31 @@ func (r *JSResult) toJSON() js.Value {
 	}
 
 	obj := make(map[string]interface{})
-	err = json.Unmarshal(jsonBytes, &obj)
-	if err != nil {
+
+	if err := json.Unmarshal(jsonBytes, &obj); err != nil {
 		panic(err)
+	}
+
+	if r.Error != nil {
+		obj["error"] = r.Error.Error()
 	}
 
 	return js.ValueOf(obj)
 }
 
 func validateStruct_JS(_ js.Value, args []js.Value) any {
-	var res JSResult
+	res := JSResult{Status: "valid"}
 
 	structTypeRepr, jsonData, err := validateArgs(args)
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "couldn't validate JS args: %v", err)
 		res.Error = err
 		return res.toJSON()
 	}
 
 	val, err := pkg.ValidateJSONAgainstStructRepr(structTypeRepr, []byte(jsonData))
 	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed: %v", err)
 		res.Error = err
 		return res.toJSON()
 	}

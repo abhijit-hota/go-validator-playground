@@ -1,0 +1,75 @@
+/* CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23666' opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+/* Styles */
+.container {
+    width: 60%;
+    max-width: 1200px;
+    min-width: 600px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.area {
+    display: flex;
+    gap: 12px;
+}
+
+textarea {
+    border: 1px solid #888;
+    padding: 12px;
+    width: 50%;
+    font-size: 1rem;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .15);
+}
+
+#invalid .heading {
+    color: orange;
+}
+
+#valid .heading {
+    color: green;
+}
+
+#error .heading {
+    color: tomato;
+}
+
+#result>.result:not(#default) {
+    display: none;
+    visibility: hidden;
+}
+
+#result #default {
+    color: #777;
+}
+
+#result {
+    border: 1px solid #888;
+    padding: 12px;
+    margin-top: 12px;
+    background-color: #eee;
+    box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .15);
+    font-size: 1rem;
+}
+
+#result .heading {
+    font-weight: bold;
+}
