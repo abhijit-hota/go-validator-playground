@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Validator Playground</title>
+	<title>Go Validator Playground</title>
 
 	<link rel="stylesheet" href="style.css" />
 
@@ -14,43 +14,59 @@
 
 <body>
 	<main class="container">
-		<h1><a href="https://pkg.go.dev/github.com/go-playground/validator/v10">Go Validator</a> Playground</h1>
-		<h3>Quickly iterate and check your go-validations.</h3>
+		<h1>Go Validator Playground</h1>
+		<h3>Iterate & test your <a
+				href="https://pkg.go.dev/github.com/go-playground/validator/v10"><code>go-playground/validator</code></a>
+			<code>struct</code> tags
+		</h3>
 		<br />
 
-		<div class="area">
-			<textarea name="struct-type" id="struct-type" cols="30" rows="30" oninput="render();">
-type Demo struct {
-    Foo int32 `json:"foo" validate:"min=1,max=105"`
-    Bar int `json:"bar" validate:"min=-15,max=1"`
-}
-			</textarea>
-			<textarea name="json" id="json" cols="30" rows="30" oninput="render();">{ "foo": 42, "bar": 1 }</textarea>
+		<div class="row">
+			<textarea name="Struct type" id="struct-type" cols="80" rows="25" placeholder="Struct type spec goes here"
+				spellcheck="false">
+				type Demo struct {
+					Foo int32 `json:"foo" validate:"min=1,max=15"`
+					Bar int `json:"bar" validate:"min=-15,max=1"`
+				}</textarea>
+
+			<textarea name="json" id="json" cols="80" rows="25" placeholder="JSON data goes here"
+				spellcheck="false"></textarea>
 		</div>
 		<div id="result">
-			<span id="default" class="heading result"> Validation results will be shown here. </span>
+			<div id="default" class="heading result">Validation results will be shown here.</div>
 
 			<div id="invalid" class="result">
-				<span class="heading">Invalid data! ❌</span>
-				<br />
+				<div class="heading">Invalid data! ❌</div>
 
-				Following tags are invalid:
-				<pre id="tags"></pre>
-				Following Fields are invalid:
-				<pre id="fields"></pre>
+				<div>
+					Faulty fields:
+					<code id="fields"></code>
+				</div>
+
+				<div>
+					Faulty tags:
+					<code id="tags"></code>
+				</div>
 			</div>
 
 			<div id="valid" class="result">
-				<span class="heading"> All good! ✅ </span>
+				<div class="heading"> All good! ✅ </div>
 			</div>
 
 			<div id="error" class="result">
-				<span class="heading"> An error occured 🤒 </span>
+				<div class="heading"> An error occured 🤒 </div>
 				<pre id="error-message"></pre>
 			</div>
 		</div>
 	</main>
+
+
 </body>
+<footer>
+	A project by <a href="https://abhijithota.me">Abhijit Hota</a> | <a
+		href="https://github.com/abhijit-hota/go-validator-playground">GitHub Repo</a> | Powered by <a
+		href="https://webassembly.org/" target="_blank">WebAssembly</a>
+</footer>
 
 <script src="index.js"></script>
 

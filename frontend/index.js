@@ -77,5 +77,10 @@ const render = () => {
 const go = new Go();
 WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then((result) => {
 	go.run(result.instance);
+	jsonDataInput.innerText = `{ "foo": 42, "bar": 1 }`;
+
+	structTypeInput.addEventListener('input', render);
+	jsonDataInput.addEventListener('input', render);
+
 	render();
 });
