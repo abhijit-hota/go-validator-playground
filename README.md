@@ -1,18 +1,28 @@
-<div style="text-align:center;">
-
-# Go Validator Playground
-
-### Iterate & test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) `struct` tags.
-
-### [Webapp](https://apps.abhijithota.me/go-validator-playground/)
-
+<div align="center">
+	<h1>
+        <a href="https://apps.abhijithota.me/go-validator-playground">
+            Go Validator Playground
+        </a>
+    </h1>
+	<p>
+		<b>
+            Iterate & test your <a href="https://pkg.go.dev/github.com/go-playground/validator/v10"><code>go-playground/validator</code></a> struct tags
+        </b>
+        <br>
+        <br>
+        <b>
+            <a href="https://apps.abhijithota.me/go-validator-playground">Go to the app!</a>
+        </b>
+	</p>
 </div>
+
+</p>
 
 ![](.github/readme.png)
 
 ## What is this?
 
-This is a simple web app that allows you to test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) struct tags.
+This is a simple web app that allows you to test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) struct tags. You can use it at https://apps.abhijithota.me/go-validator-playground.
 
 ## How does it work?
 
@@ -32,6 +42,7 @@ It uses [WebAssembly](https://webassembly.org/) to run the [`go-playground/valid
 
 It's pretty flexible, but it's also a PITA when you misspell something or forget the syntax. This tool is here to help you with that. 
 
+
 ## Todo
 
 - [ ] Tests
@@ -39,6 +50,7 @@ It's pretty flexible, but it's also a PITA when you misspell something or forget
 - [ ] Syntax highlighting maybe?
 - [ ] Minimum responsiveness
 - [ ] Write blog post — "*A primer on Go reflection*"
+- [ ] Maybe buy a domain if enough people use it
 
 ## A word by the author
 
