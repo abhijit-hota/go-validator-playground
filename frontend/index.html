@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator Playground</title>
+    <script src="wasm_exec.js"></script>
+    <script>
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        });
+
+        function render() {
+            const structType = document.getElementById("struct-type").value
+            const jsonData = document.getElementById("json").value
+            
+            const result = validateStruct(structType, jsonData)
+            console.log(result)
+        }
+    </script>
+</head>
+
+<body>
+
+    <textarea name="struct-type" id="struct-type" cols="30" rows="50"></textarea>
+    <textarea name="json" id="json" cols="30" rows="50"></textarea>
+    <button onclick="render();">
+        Validate
+    </button>
+</body>
+
+</html>
