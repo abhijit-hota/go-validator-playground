@@ -1,4 +1,4 @@
-<div style="text-align:center;">
+<p align="center">
 
 # Go Validator Playground
 
@@ -6,7 +6,7 @@
 
 ### [Webapp](https://apps.abhijithota.me/go-validator-playground/)
 
-</div>
+</p>
 
 ![](.github/readme.png)
 
