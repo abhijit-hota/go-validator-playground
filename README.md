@@ -1,10 +1,16 @@
-<p align="center">
-
-# Go Validator Playground
-
-### Iterate & test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) `struct` tags.
-
-### [Webapp](https://apps.abhijithota.me/go-validator-playground/)
+<div align="center">
+	<h1>Go Validator Playground</h1>
+	<p>
+		<b>
+            Iterate & test your [`go-playground/validator`](https://pkg.go.dev/github.com/go-playground/validator/v10) `struct` tags.
+        </b>
+        <b>
+            [Webapp](https://apps.abhijithota.me/go-validator-playground/)
+        </b>
+	</p>
+	<br>
+	<br>
+</div>
 
 </p>
 
