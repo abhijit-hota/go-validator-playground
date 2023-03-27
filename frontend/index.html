@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Validator Playground</title>
 
-		<link rel="stylesheet" href="style.css" />
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Validator Playground</title>
 
-		<script src="wasm_exec.js"></script>
-		<script src="wasm_init.js"></script>
-	</head>
+	<link rel="stylesheet" href="style.css" />
 
-	<body>
-		<main class="container">
-			<h1><a href="https://pkg.go.dev/github.com/go-playground/validator/v10">Go Validator</a> Playground</h1>
-			<h3>Quickly iterate and check your go-validations.</h3>
-			<br />
+	<script src="wasm_exec.js"></script>
+</head>
 
-			<div class="area">
-				<textarea name="struct-type" id="struct-type" cols="30" rows="30" oninput="render();"></textarea>
-				<textarea name="json" id="json" cols="30" rows="30" oninput="render();"></textarea>
+<body>
+	<main class="container">
+		<h1><a href="https://pkg.go.dev/github.com/go-playground/validator/v10">Go Validator</a> Playground</h1>
+		<h3>Quickly iterate and check your go-validations.</h3>
+		<br />
+
+		<div class="area">
+			<textarea name="struct-type" id="struct-type" cols="30" rows="30" oninput="render();">
+type Demo struct {
+    Foo int32 `json:"foo" validate:"min=1,max=105"`
+    Bar int `json:"bar" validate:"min=-15,max=1"`
+}
+			</textarea>
+			<textarea name="json" id="json" cols="30" rows="30" oninput="render();">{ "foo": 42, "bar": 1 }</textarea>
+		</div>
+		<div id="result">
+			<span id="default" class="heading result"> Validation results will be shown here. </span>
+
+			<div id="invalid" class="result">
+				<span class="heading">Invalid data! ❌</span>
+				<br />
+
+				Following tags are invalid:
+				<pre id="tags"></pre>
+				Following Fields are invalid:
+				<pre id="fields"></pre>
 			</div>
-			<div id="result">
-				<span id="default" class="heading result"> Validation results will be shown here. </span>
 
-				<div id="invalid" class="result">
-					<span class="heading">Invalid data! ❌</span>
-					<br />
-
-					Following tags are invalid:
-					<pre id="tags"></pre>
-					Following Fields are invalid:
-					<pre id="fields"></pre>
-				</div>
-
-				<div id="valid" class="result">
-					<span class="heading"> All good! ✅ </span>
-				</div>
-
-				<div id="error" class="result">
-					<span class="heading"> An error occured 🤒 </span>
-					<pre id="error-message"></pre>
-				</div>
+			<div id="valid" class="result">
+				<span class="heading"> All good! ✅ </span>
 			</div>
-		</main>
-	</body>
-	<script src="index.js"></script>
+
+			<div id="error" class="result">
+				<span class="heading"> An error occured 🤒 </span>
+				<pre id="error-message"></pre>
+			</div>
+		</div>
+	</main>
+</body>
+
+<script src="index.js"></script>
+
 </html>
