@@ -7,6 +7,7 @@ const statusElems = {
 	error: $('#result #error'),
 	valid: $('#result #valid'),
 	invalid: $('#result #invalid'),
+	loading: $('#result #loading'),
 	default: $('#result #default'),
 };
 
@@ -77,8 +78,9 @@ const render = () => {
 const go = new Go();
 WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then((result) => {
 	go.run(result.instance);
-	jsonDataInput.innerText = `{ "foo": 42, "bar": 1 }`;
 
+	structTypeInput.removeAttribute('disabled');
+	jsonDataInput.removeAttribute('disabled');
 	structTypeInput.addEventListener('input', render);
 	jsonDataInput.addEventListener('input', render);
 

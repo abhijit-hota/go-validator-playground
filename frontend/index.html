@@ -23,27 +23,28 @@
 
 		<div class="row">
 			<textarea name="Struct type" id="struct-type" cols="80" rows="25" placeholder="Struct type spec goes here"
-				spellcheck="false">
+				spellcheck="false" disabled>
 type Demo struct {
-	Foo int32 `json:"foo" validate:"min=1,max=15"`
+	Foo int32 `json:"foo" validate:"min=1,max=42"`
 	Bar int `json:"bar" validate:"min=-15,max=1"`
 }</textarea>
 
-			<textarea name="json" id="json" cols="80" rows="25" placeholder="JSON data goes here"
-				spellcheck="false"></textarea>
+			<textarea name="json" id="json" cols="80" rows="25" placeholder="JSON data goes here" spellcheck="false"
+				disabled>{ "foo": 42, "bar": 1 }</textarea>
 		</div>
 		<div id="result">
+			<div id="loading" class="heading result">Loading WASM... ⏳</div>
 			<div id="default" class="heading result">Validation results will be shown here.</div>
 
 			<div id="invalid" class="result">
 				<div class="heading">Invalid data! ❌</div>
 
-				<div>
+				<div class="invalid-data">
 					Faulty fields:
 					<code id="fields"></code>
 				</div>
 
-				<div>
+				<div class="invalid-data">
 					Faulty tags:
 					<code id="tags"></code>
 				</div>

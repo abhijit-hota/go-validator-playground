@@ -45,18 +45,6 @@ textarea {
     box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .15);
 }
 
-#invalid .heading {
-    color: orangered;
-}
-
-#valid .heading {
-    color: green;
-}
-
-#error .heading {
-    color: red;
-}
-
 #result .heading {
     font-weight: bold;
     margin-bottom: 12px;
@@ -66,12 +54,17 @@ textarea {
     width: 100%;
     display: none;
     visibility: hidden;
+    color: #888;
 }
 
-#result #default {
+#result code#tags,
+#result code#fields {
+    color: black;
+}
+
+#result #loading {
     display: block;
     visibility: visible;
-    color: #888;
 }
 
 #result {
@@ -83,6 +76,22 @@ textarea {
     font-size: 1rem;
     overflow: scroll;
     max-height: 200px;
+}
+
+#invalid .heading {
+    color: orangered;
+}
+
+#invalid .invalid-data {
+    margin-bottom: 6px;
+}
+
+#valid .heading {
+    color: green;
+}
+
+#error .heading {
+    color: red;
 }
 
 footer {
