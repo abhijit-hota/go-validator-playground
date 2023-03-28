@@ -84,5 +84,7 @@ WebAssembly.instantiateStreaming(fetch('main.wasm'), go.importObject).then((resu
 	structTypeInput.addEventListener('input', render);
 	jsonDataInput.addEventListener('input', render);
 
-	render();
+	statusElems.loading.innerText = 'Loaded WASM! ✅';
+
+	setTimeout(render, 1000);
 });
